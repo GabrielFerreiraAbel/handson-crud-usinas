@@ -1,0 +1,17 @@
+# Ambiente virtual
+venv/
+.venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Variáveis de ambiente
+.env
+
+# Sistema operacional e editor
+.DS_Store
+.idea/
+.vscode/
