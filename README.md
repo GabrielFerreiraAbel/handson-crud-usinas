@@ -3,9 +3,9 @@
 CRUD completo da entidade **Usina** (fazenda solar da Bulbe Energia), implementado com arquitetura em camadas: Apresentação, Serviço, Domínio e Persistência.
 
 - **Disciplina:** Projeto Ciência de Dados II, Ibmec, 2º semestre de 2026
-- **Professor:** Cristiano de Macedo Neto, M.Sc.
+- **Professor:** Cristiano de Macedo Neto, M.Sc. 
 - **Aula:** 09, arquitetura em camadas
-- **Equipe:** Squad Silver Lake
+- **Equipe:** Squad Silver Lake 
 - **Empresa parceira:** Bulbe Energia (bulbeenergia.com.br)
 
 A persistência usa uma base em memória. Quando o banco relacional entrar (Aula 19), apenas a camada `repositories/` muda; o restante do código permanece igual.
