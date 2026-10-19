@@ -5,6 +5,7 @@ Ponto de entrada da aplicacao.
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 
+from app.controllers.auth_controller import router as auth_router
 from app.controllers.usina_controller import router as usina_router
 from app.services.usina_service import ErroDeNegocio
 
@@ -14,11 +15,14 @@ app = FastAPI(
     version="1.0.0",
 )
 
+app.include_router(auth_router)
 app.include_router(usina_router)
 
 
 @app.exception_handler(ErroDeNegocio)
 def tratar_erro_de_negocio(request: Request, exc: ErroDeNegocio) -> JSONResponse:
+    # Respostas 401 informam o esquema de autenticacao esperado, como pede o padrao HTTP.
+    headers = {"WWW-Authenticate": "Bearer"} if exc.status == 401 else None
     return JSONResponse(
         status_code=exc.status,
         content={
@@ -28,6 +32,7 @@ def tratar_erro_de_negocio(request: Request, exc: ErroDeNegocio) -> JSONResponse
                 "status": exc.status,
             }
         },
+        headers=headers,
     )
 
 
