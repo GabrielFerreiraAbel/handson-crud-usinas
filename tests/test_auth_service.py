@@ -5,14 +5,14 @@ Testes unitarios do AuthService.
 import pytest
 
 from app.domain.usuario import UsuarioCreate
-from app.repositories.usuario_repository import UsuarioRepository
+from app.repositories.usuario_repository import InMemoryUsuarioRepository
 from app.services.auth_service import AuthService
 from app.services.usina_service import ErroDeNegocio
 
 
 @pytest.fixture
 def auth() -> AuthService:
-    return AuthService(UsuarioRepository())
+    return AuthService(InMemoryUsuarioRepository())
 
 
 @pytest.fixture

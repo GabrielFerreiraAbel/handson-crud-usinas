@@ -12,13 +12,13 @@ from unittest.mock import Mock
 import pytest
 
 from app.domain.usina import StatusUsina, UsinaCreate, UsinaUpdate
-from app.repositories.usina_repository import UsinaRepository
+from app.repositories.usina_repository import InMemoryUsinaRepository
 from app.services.usina_service import ErroDeNegocio, UsinaService
 
 
 @pytest.fixture
 def service() -> UsinaService:
-    return UsinaService(UsinaRepository())
+    return UsinaService(InMemoryUsinaRepository())
 
 
 @pytest.fixture
