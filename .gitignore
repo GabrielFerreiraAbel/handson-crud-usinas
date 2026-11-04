@@ -15,3 +15,6 @@ __pycache__/
 .DS_Store
 .idea/
 .vscode/
+
+# Bancos SQLite locais (cada um gera o seu com "alembic upgrade head")
+*.db
